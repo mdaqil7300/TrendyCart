@@ -1,0 +1,19 @@
+.productCard {
+    width: 18rem;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.imageSize {
+    height: 230px;
+    width: 150px;
+}
+
+.cardTitle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}

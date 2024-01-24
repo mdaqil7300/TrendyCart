@@ -1,0 +1,16 @@
+.count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: aquamarine;
+    color: seagreen;
+    border-radius: 50%;
+    padding: 2px 8px;
+    margin: -5px 10px 0px 0px;
+    font-size: 12px;
+}
+
+.link-container {
+    position: relative;
+    display: inline-block;
+}

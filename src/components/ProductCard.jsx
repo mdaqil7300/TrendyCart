@@ -1,4 +1,5 @@
-import './ProductCard.css'
+import './ProductCard.css';
+import '../index.css'
 import cartIcon from '../assets/addToCart.svg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';

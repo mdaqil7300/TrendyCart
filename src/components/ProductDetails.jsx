@@ -3,6 +3,7 @@ import { useParams } from 'react-router';
 import StoreApi from '../services/store-api';
 import './ProductDetails.css';
 import cartIcon from '../assets/addToCart.svg';
+import '../index.css'
 
 const ProductDetails = () => {
     const { id } = useParams();
@@ -20,7 +21,6 @@ const ProductDetails = () => {
 
     useEffect(() => {
         console.log('id:', id);
-        // Call the fetchProduct function
         if (id) {
             fetchProduct();
         }
@@ -29,7 +29,6 @@ const ProductDetails = () => {
     return (
         <>
             {product ?
-
                 (<div className="card m-5 shadow" style={{ maxWidth: '850px' }}>
                     <div className="row g-0">
                         <div className="col-md-4">
@@ -50,8 +49,11 @@ const ProductDetails = () => {
                     </div>
                 </div>)
                 : (
-                    <p>Loading...</p>
+                    <div className='parent'>
+                        <span className="loader"></span>
+                    </div>
                 )}
+
         </>
     );
 };

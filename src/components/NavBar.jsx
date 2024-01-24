@@ -23,7 +23,7 @@ const NavBar = ({ onSearch, cartIconCount }) => {
             <nav className="navbar" style={{ backgroundColor: '#e3f2fd' }}>
                 <div className="container-fluid">
                     <Link to='/'>
-                        <h1 className="navbar-brand">E-Commerce</h1>
+                        <span className="navbar-brand mb-0 h1">TrendyCart</span>
                     </Link>
                     <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={handleInput} />

@@ -1,37 +1,37 @@
-import axios from "axios";
-
 const StoreApi = {
-    getAllProducts() {
-        axios.get('https://fakestoreapi.com/products').then(response => {
-            return response.json()
-        })
-        // fetch('https://fakestoreapi.com/products')
-        //     .then(res => res.json())
-        //     .then(json => console.log(json))
+    async getAllProducts() {
+        const res = await fetch('https://fakestoreapi.com/products')
+        const result = await res.json();
+        return result;
     },
-    getSingleProduct(productId) {
-        axios.get(`https://fakestoreapi.com/products/${productId}`).then(response => {
-            return response.json()
-        })
-        // fetch('https://fakestoreapi.com/products/1')
-        //     .then(res => res.json())
-        //     .then(json => console.log(json))
+    async getSingleProduct(productId) {
+        try {
+            const res = await fetch(`https://fakestoreapi.com/products/${productId}`);
+            console.log('Response:', res);
+
+            const result = await res.json();
+            console.log('Result:', result);
+
+            return result;
+        } catch (error) {
+            console.error('Error fetching product:', error);
+            throw error; // Rethrow the error to handle it in the calling function
+        }
     },
-    getProductsByQuery(query) {
-        axios.get('https://fakestoreapi.com/products').then(response => {
-            const result = response.json();
-            return result.filter((product) => product.title.toLowerCase().includes(query))
-        })
+    async getProductsByQuery(query) {
+        const res = await fetch('https://fakestoreapi.com/products')
+        const result = await res.json();
+        return result.filter((product) => product.title.toLowerCase().includes(query));
     },
-    getSortedProducts() {
-        fetch('https://fakestoreapi.com/products?sort=desc')
-            .then(res => res.json())
-            .then(json => console.log(json))
+    async getSortedProducts() {
+        const res = await fetch('https://fakestoreapi.com/products?sort=desc')
+        const result = await res.json();
+        return result;
     },
-    getAllCategories() {
-        fetch('https://fakestoreapi.com/products/categories')
-            .then(res => res.json())
-            .then(json => console.log(json))
+    async getAllCategories() {
+        const res = await fetch('https://fakestoreapi.com/products/categories')
+        const result = await res.json();
+        return result;
     }
 }
 

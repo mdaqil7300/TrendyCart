@@ -25,7 +25,7 @@ const CartState = (props) => {
         if (productIndex !== -1) {
             increaseQuant(product.id);
         } else {
-            setCart([...cart, { product, quantity: 1 }]);
+            setCart([...cart, { product, quantity: 1 }])
         }
     }
 

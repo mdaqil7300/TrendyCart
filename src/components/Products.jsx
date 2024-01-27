@@ -3,23 +3,37 @@ import ProductCard from './ProductCard'
 import StoreApi from '../services/store-api';
 import '../index.css';
 import { useCart } from '../context/cartState';
+import { useSearchParams } from 'react-router-dom';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     const { addToCart } = useCart();
-
-    const getAllProducts = async () => {
-        const product = await StoreApi.getAllProducts();
-        console.log(product)
-        setProducts(product)
-    }
+    const [loading, setLoading] = useState(false)
+    const [query, setQuery] = useSearchParams();
+    const searchQuery = query.get('q')
 
     useEffect(() => {
-        getAllProducts()
-    }, []);
+        const fetchProducts = async () => {
+            setLoading(true)
+            const products = searchQuery
+                ? await StoreApi.getProductsByQuery(searchQuery)
+                : await StoreApi.getAllProducts()
+            setProducts(products)
+            setLoading(false)
+        }
+        fetchProducts().catch(console.error)
+    }, [searchQuery])
+
+    if (!loading && searchQuery && !products.length) {
+        return (
+            <div>
+                No mAtch found
+            </div>
+        )
+    }
     return (
         <>
-            {products.length === 0
+            {loading
                 ? (<div className='parent'>
                     <span className="loader"></span>
                 </div>)

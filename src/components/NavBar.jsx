@@ -6,17 +6,6 @@ import './NavBar.css'
 
 const NavBar = ({ onSearch, cartIconCount }) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        const searchProducts = async () => {
-            const products = searchQuery
-                ? await StoreApi.getProductsByQuery(searchQuery)
-                : await StoreApi.getAllProducts()
-            setProducts(products)
-        }
-        searchProducts().catch(console.error)
-    }, [searchQuery])
 
     const handleSearch = () => {
         if (searchQuery.trim().length) {

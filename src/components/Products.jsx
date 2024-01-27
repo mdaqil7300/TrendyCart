@@ -26,7 +26,7 @@ const Products = () => {
 
                 : (<div className="row row-cols-1 row-cols-md-4 m-5 m ">
                     {products.map((product) => (
-                        <ProductCard key={product.id} data={product} addToCart={(product) => addToCart(product)} />
+                        <ProductCard key={product.id} data={product} addToCart={() => addToCart(product)} />
                     ))}
                 </div>
                 )

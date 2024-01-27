@@ -45,7 +45,7 @@ const ProductDetails = () => {
                             <div className="d-flex justify-content-between align-items-center p-5 ">
                                 <span className='text-primary fw-bolder'>${product.price}</span>
                                 <span>
-                                    <img src={cartIcon} alt="" style={{ height: '40px', width: '40px' }} onClick={(product) => addToCart(product)} />
+                                    <img src={cartIcon} alt="" style={{ height: '40px', width: '40px' }} onClick={() => addToCart(product)} />
                                 </span>
                             </div>
                         </div>

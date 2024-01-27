@@ -33,7 +33,7 @@ const ProductCard = ({ data, addToCart }) => {
                         </OverlayTrigger>
                         <span className="card-text d-flex justify-content-between align-items-center mt-3">
                             <span className='text-primary fw-bolder'>${price}</span>
-                            <span>
+                            <span style={{ cursor: 'pointer' }}>
                                 <img onClick={addToCart} src={cartIcon} alt="" style={{ height: '40px', width: '40px' }} />
                             </span>
                         </span>

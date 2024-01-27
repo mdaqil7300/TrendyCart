@@ -3,6 +3,7 @@ import '../index.css'
 import './Cart.css'
 import alerticon from '../assets/alertIcon1.svg'
 import { useCart } from '../context/cartState'
+import { Link } from 'react-router-dom'
 
 const SHIPPING_CHARGE = 15;
 
@@ -36,9 +37,11 @@ const Cart = () => {
                                         </div>
                                         <div className="col-md-8">
                                             <div className="card-body">
-                                                <p className="card-text">{item.product.title}</p>
+                                                <Link to={`/products/${item.product.id}`}>
+                                                    <p className="card-text">{item.product.title}</p>
+                                                </Link>
                                                 <div className='counterBtn'>
-                                                    <button type="button" className="btn btn-light " onClick={() => decreaseQuant(item.product.id)}>-</button>
+                                                    <button type="button" className="btn btn-light " disabled={item.quantity === 1} onClick={() => decreaseQuant(item.product.id)}>-</button>
 
                                                     <span className='px-2'> {item.quantity} </span>
 
@@ -62,7 +65,7 @@ const Cart = () => {
                                     <div className="card-body">
                                         <div className="d-flex justify-content-between align-items-center p-2">
                                             <span className="card-text">Subtotal:</span>
-                                            <span className='text-primary fw-bolder'>${cartTotal()}</span>
+                                            <span className='text-primary fw-bolder'>${parseFloat(cartTotal()).toFixed(2)}</span>
                                         </div>
                                         <div className="d-flex justify-content-between align-items-center p-2">
                                             <span className="card-text">Shipping Fee:</span>
@@ -70,7 +73,7 @@ const Cart = () => {
                                         </div>
                                         <div className="d-flex justify-content-between align-items-center p-2">
                                             <span className="card-text">Total:</span>
-                                            <span className='text-primary fw-bolder'>${cartTotal() + SHIPPING_CHARGE}</span>
+                                            <span className='text-primary fw-bolder'>${parseFloat(cartTotal() + SHIPPING_CHARGE).toFixed(2)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +85,6 @@ const Cart = () => {
                         <div className="card text-dark bg-info p-2 text-center" style={{ maxWidth: '18rem' }}>
                             <div className="card-body">
                                 <h5 className="card-title"><img src={alerticon} /> Your Cart is Empty</h5>
-                                {/* <p class="card-text">Start shopping now</p> */}
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../index.css'
 import './Cart.css'
 import alerticon from '../assets/alertIcon1.svg'
-import { useCart } from '../context/cartState'
+import { useCart } from '../context/CartContextState'
 import { Link } from 'react-router-dom'
 
 const SHIPPING_CHARGE = 15;

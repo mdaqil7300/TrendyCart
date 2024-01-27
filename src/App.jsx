@@ -4,7 +4,7 @@ import Products from './components/Products'
 import NavBar from './components/NavBar'
 import ProductDetails from './components/ProductDetails'
 import Cart from './components/Cart'
-import { useCart } from './context/cartState'
+import { useCart } from './context/CartContextState'
 
 const App = () => {
   const navigate = useNavigate();

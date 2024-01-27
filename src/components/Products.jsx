@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProductCard from './ProductCard'
 import StoreApi from '../services/store-api';
 import '../index.css';
-import { useCart } from '../context/cartState';
+import { useCart } from '../context/CartContextState';
 import { useSearchParams } from 'react-router-dom';
 
 const Products = () => {

@@ -4,7 +4,7 @@ import StoreApi from '../services/store-api';
 import './ProductDetails.css';
 import cartIcon from '../assets/addToCart.svg';
 import '../index.css';
-import { useCart } from '../context/cartState';
+import { useCart } from '../context/CartContextState';
 
 
 const ProductDetails = () => {

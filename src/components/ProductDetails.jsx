@@ -3,11 +3,14 @@ import { useParams } from 'react-router';
 import StoreApi from '../services/store-api';
 import './ProductDetails.css';
 import cartIcon from '../assets/addToCart.svg';
-import '../index.css'
+import '../index.css';
+import { useCart } from '../context/cartState';
+
 
 const ProductDetails = () => {
     const { id } = useParams();
     const [product, setProduct] = useState();
+    const { addToCart } = useCart();
 
     const fetchProduct = async () => {
         try {
@@ -42,7 +45,7 @@ const ProductDetails = () => {
                             <div className="d-flex justify-content-between align-items-center p-5 ">
                                 <span className='text-primary fw-bolder'>${product.price}</span>
                                 <span>
-                                    <img src={cartIcon} alt="" style={{ height: '40px', width: '40px' }} />
+                                    <img src={cartIcon} alt="" style={{ height: '40px', width: '40px' }} onClick={(product) => addToCart(product)} />
                                 </span>
                             </div>
                         </div>

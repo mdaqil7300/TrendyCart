@@ -3,6 +3,7 @@ import ProductCard from './ProductCard'
 import StoreApi from '../services/store-api';
 import '../index.css';
 import { useCart } from '../context/CartContextState';
+import { useTheme } from '../context/ThemeContext';
 import { useSearchParams } from 'react-router-dom';
 
 const Products = () => {
@@ -38,7 +39,7 @@ const Products = () => {
                     <span className="loader"></span>
                 </div>)
 
-                : (<div className="row row-cols-1 row-cols-md-4 m-5 m ">
+                : (<div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 m-3" style={{ marginTop: '2rem' }}>
                     {products.map((product) => (
                         <ProductCard key={product.id} data={product} addToCart={() => addToCart(product)} />
                     ))}

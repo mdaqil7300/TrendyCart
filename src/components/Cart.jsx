@@ -82,7 +82,7 @@ const Cart = () => {
                     </div>)
                 : (
                     <div className='d-flex justify-content-center align-items-center mt-5'>
-                        <div className="card text-dark bg-info p-2 text-center" style={{ maxWidth: '18rem' }}>
+                        <div className="card text-dark bg-info p-2 text-center emptyCart" style={{ maxWidth: '18rem' }}>
                             <div className="card-body">
                                 <h5 className="card-title"><img src={alerticon} /> Your Cart is Empty</h5>
                             </div>
